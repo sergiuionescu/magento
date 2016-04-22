@@ -1,0 +1,14 @@
+{
+    "name": "magento-travis",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Magento environment configuration with travis.ci specific configuration.",
+    "run_list": [
+        "role[magento]"
+    ],
+    "default_attributes": {
+        "php" : {
+            "install_method": "source"
+        }
+    }
+}

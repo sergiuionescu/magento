@@ -1,0 +1,34 @@
+{
+    "name": "magento",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "description": "Magento environment configuration.",
+    "run_list": [
+        "recipe[magento]",
+        "recipe[magento::test]",
+        "recipe[lamp::nfs]",
+        "recipe[lamp::xdebug]"
+    ],
+    "default_attributes": {
+        "lamp": {
+            "xdebug": {
+                "directives": {
+                    "remote_host": "10.0.2.2",
+                    "remote_enable": 0,
+                    "remote_autostart": 1
+                }
+            }
+        },
+        "php": {
+            "packages": [
+                "php5-cgi",
+                "php5",
+                "php5-dev",
+                "php5-cli",
+                "php-pear",
+                "php5-mcrypt",
+                "php5-curl"
+            ]
+        }
+    }
+}
